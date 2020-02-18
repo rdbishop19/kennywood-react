@@ -16,7 +16,7 @@ const login = credentials => {
     })
     .then(res => res.json())
     .then(res => {
-        console.log('login', res)
+        // console.log('login', res)
         if ("valid" in res && res.valid && 'token' in res) {
             sessionStorage.setItem(STORAGE_TOKEN, res.token)
         }

@@ -8,7 +8,6 @@ function ApplicationViews() {
     return (
         <React.Fragment>
             <Route exact path="/" render={props =>{
-                console.log('props', props)
                 return <ParkExplorer {...props} />
                 }}
             />
