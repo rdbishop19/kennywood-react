@@ -40,4 +40,8 @@ const register = (userInfo) => {
     })
 }
 
-export { isAuthenticated, login, register }
+const logout = () => {
+    sessionStorage.removeItem(STORAGE_TOKEN)
+}
+
+export { isAuthenticated, login, logout, register }
