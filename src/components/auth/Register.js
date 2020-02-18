@@ -1,19 +1,33 @@
 import React, { useState } from 'react'
+import { register } from '../helpers/simpleAuth'
+import { useHistory } from 'react-router-dom'
 
 function Register() {
     const [user, setUser] = useState()
-
+    const history = useHistory()
     const handleInputChange = evt => {
         setUser({
             ...user,
-            [evt.target.id]: evt.target.id === "familyMembers" ?
-                Number(evt.target.value) :
-                evt.target.value
+            [evt.target.id]: evt.target.value
         })
     }
 
-    const handleRegister = () => {
+    const handleRegister = evt => {
+      evt.preventDefault()
 
+      // create object from state
+      const new_user = {
+        "username": user.userName,
+        "first_name": user.firstName,
+        "last_name": user.lastName,
+        "family_members": Number(user.familyMembers),
+        "email": user.email,
+        "password": user.password
+      }
+
+      // Make fetch call with the object as the body of the POST request
+      register(new_user)
+        .then(history.push('/'))
     }
 
     return (
