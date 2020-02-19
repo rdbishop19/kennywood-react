@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, withRouter } from 'react-router-dom'
 import Register from './auth/Register'
 import ParkExplorer from './home/ParkExplorer'
+import ItineraryList from './home/ItineraryList'
 
 
 function ApplicationViews() {
@@ -13,6 +14,10 @@ function ApplicationViews() {
             />
             <Route path="/register" render={props => {
                 return <Register {...props} />
+                }}
+            />
+            <Route path="/myitinerary" render={props => {
+                return <ItineraryList {...props} />
                 }}
             />
         </React.Fragment>
