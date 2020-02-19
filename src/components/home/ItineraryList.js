@@ -15,7 +15,7 @@ export default function ItineraryList() {
 				}
 			})
 				.then((res) => res.json())
-				.then((res) => setItineraryList(res));
+				.then(setItineraryList);
 		}
 	};
 
