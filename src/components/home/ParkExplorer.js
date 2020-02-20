@@ -29,21 +29,20 @@ export default function ParkExplorer() {
         }
     }
 
-    const getAttractions = () => {
+    const getAttractions = (area_id) => {
         if (isAuthenticated()) {
-            fetch(`${BASE_URL}/attractions`, init)
+            fetch(`${BASE_URL}/attractions?area=${area_id}`, init)
             .then(res => res.json())
             .then(res => setAttractions(res))
         }
     }
 
     useEffect(getParkAreas, [])
-    useEffect(getAttractions, [])
 
     return (
         <React.Fragment>
             <main className="explorer">
-                <AreaList areas={areas}/>
+                <AreaList areas={areas} getAttractions={getAttractions}/>
                 <AttractionList attractions={attractions} />
             </main>
         </React.Fragment>
